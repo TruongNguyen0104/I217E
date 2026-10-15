@@ -1,0 +1,85 @@
+-- ==========================================
+-- HW1: CafeOBJ Functional Programming
+-- ==========================================
+
+-- 1. Greatest Common Divisor (GCD)
+open NAT .
+op gcd : Nat Nat -> Nat .
+var X : Nat .
+var NzY : NzNat .
+eq gcd(X,0) = X .
+eq gcd(X,NzY) = gcd(NzY,X rem NzY) . 
+-- What follows -- on a line is a comment.
+red gcd(0,0) . -- compute the gcd of 0 & 0
+red gcd(2,0) . -- compute the gcdof 2 & 0
+red gcd(0,2) . -- compute the gcdof 0 & 2
+red gcd(24,36) . -- compute the gcd of 24 & 36
+red gcd(2015,31031) . -- compute the gcd of 2015 & 31031
+close
+
+-- 2. Factorial
+open NAT .
+op fact : Nat -> Nat .
+var NzX : NzNat .
+eq fact(0) = 1 .
+eq fact(NzX) = NzX * fact(p NzX) .
+--
+red fact(0) .
+red fact(1) .
+red fact(10) .
+red fact(100) .
+red fact(1000) .
+-- red fact(10000) . --stack overflow
+-- red fact(100000) . --stack overflow
+close
+
+-- 3. Odd-Even Divide-and-Conquer Factorial
+open NAT .
+op cond : Bool Nat Nat -> Nat .
+op g : Nat Nat -> Nat .
+op oedc-fact : Nat -> Nat .
+vars X Y : Nat .  
+var NzX : NzNat .
+-- cond
+eq cond(true,X,Y) = X .
+eq cond(false,X,Y) = Y . 
+-- g
+eq g(X,Y) = cond(X > Y, g(X,2 * Y) * g(sd(X,Y),2 * Y), X) .
+-- oedc-fact
+eq oedc-fact(0) = 1 .
+eq oedc-fact(NzX) = g(NzX,1) .
+--
+red oedc-fact(10000) . -- can be computed
+close
+
+
+-- 4. Fibonacci
+open NAT .
+op fib : Nat -> Nat .
+op sfib : Nat -> Nat .
+var NzX : NzNat . -- fib
+eq fib(0) = 0 .
+eq fib(NzX) = sfib(p NzX) . -- sfib
+eq sfib(0) = 1 .
+eq sfib(NzX) = fib(NzX) + fib(p NzX) . --
+red fib(10) .
+red fib(20) .
+red fib(30) . -- can be computed, although it takes time.
+close
+
+
+
+-- 5. Ackermann Function
+open NAT .
+op ack : Nat Nat -> Nat .
+var Y : Nat .
+vars NzX NzY : NzNat .
+eq ack(0,Y) = Y + 1 .
+eq ack(NzX,0) = ack(p NzX,1) .
+eq ack(NzX,NzY) = ack(p NzX,ack(NzX,p NzY)) . --
+red ack(0,0) .
+red ack(1,1) .
+red ack(2,2) .
+red ack(3,2) .
+red ack(3,3) .
+close
