@@ -43,68 +43,57 @@ The following schedule and deadlines are transcribed from the official
 course website. All deadlines are **Japan Standard Time (JST, UTC+9)**.
 
   -----------------------------------------------------------------------------------------------------------------------------------
-  10:50 - 12:30, Oct 13, Tuesday
-1. Sorts, Operators, Terms and Equations (lecture note 1)
-Submission deadline of HW1: 18:00 of Oct 20 (JST)
 
-9:00 - 10:40, Oct 15, Thursday
-2. Modules, Order Sorts and Lists of Natural Numbers (lecture note 2)
-Submission deadline of HW2: 18:00 of Oct 22 (JST)
 
-13:30 - 15:10, Oct 15, Thursday
-3. Term Rewriting (lecture note 3)
-Submission deadline of HW3: 18:00 of Oct 27 (JST)
+## Lecture Schedule
 
-10:50 - 12:30, Oct 20, Tuesday
-Tutorial Hour (for lecture note 3)
+| No. | Date | Time (JST) | Topic | Materials |
+|---:|---|---|---|---|
+| 1 | Tue, Oct 13 | 10:50–12:30 | Sorts, Operators, Terms and Equations | Lecture Note 1 |
+| 2 | Thu, Oct 15 | 09:00–10:40 | Modules, Order Sorts and Lists of Natural Numbers | Lecture Note 2 |
+| 3 | Thu, Oct 15 | 13:30–15:10 | Term Rewriting | Lecture Note 3 |
+| — | Tue, Oct 20 | 10:50–12:30 | Tutorial Hour (Lecture Note 3) | — |
+| 4 | Thu, Oct 22 | 09:00–10:40 | Parametrized Modules | Lecture Note 4 |
+| 5 | Thu, Oct 22 | 13:30–15:10 | Tables | Lecture Note 5 |
+| 6 | Tue, Oct 27 | 10:50–12:30 | Infinite Lists | Lecture Note 6 |
+| 7 | Thu, Nov 5 | 09:00–10:40 | Multisets | Lecture Note 7 |
+| 8 | Tue, Nov 10 | 10:50–12:30 | A Programming Language Processor – Interpreter | Lecture Note 8 |
+| 9 | Thu, Nov 12 | 09:00–10:40 | A Programming Language Processor – Virtual Machine | Lecture Note 9 |
+| 10 | Thu, Nov 12 | 13:30–15:10 | A Programming Language Processor – Compiler | Lecture Note 10 |
+| 11 | Tue, Nov 17 | 10:50–12:30 | Program Verification – Natural Numbers | Lecture Note 11 |
+| 12 | Thu, Nov 19 | 09:00–10:40 | Program Verification – Lists | Lecture Note 12 |
+| 13 | Tue, Nov 24 | 10:50–12:30 | Verification of Arithmetic Calculator Compiler | Lecture Note 13 |
+| 14 | Thu, Nov 26 | 09:00–10:40 | Proof Assistant | Lecture Note 14 |
+| — | Thu, Nov 26 | 13:30–15:10 | Tutorial Hour (Exam Preparation) | — |
+| — | Tue, Dec 1 | 10:50–12:30 | **Exam** | — |
 
-9:00 - 10:40, Oct 22, Thursday
-4. Parametrized Modules (lecture note 4)
-Submission deadline of HW4: 18:00 of Oct 29 (JST)
+## Homework Submission Deadlines
 
-13:30 - 15:10, Oct 22, Thursday
-5. Tables (lecture note 5) 
-Submission deadline of HW5: 18:00 of Nov 4 (JST)
+All deadlines are at **18:00 JST**.
 
-10:50 - 12:30, Oct 27, Thursday
-6. Infinite Lists (lecture note 6)
-Submission deadline of HW6: 18:00 of Nov 6 (JST)
+| Homework | Related Lecture(s) | Submission Deadline |
+|---|---|---|
+| HW1 | Lecture 1 | Tue, Oct 20 |
+| HW2 | Lecture 2 | Thu, Oct 22 |
+| HW3 | Lecture 3 | Tue, Oct 27 |
+| HW4 | Lecture 4 | Thu, Oct 29 |
+| HW5 | Lecture 5 | Wed, Nov 4 |
+| HW6 | Lecture 6 | Fri, Nov 6 |
+| HW7 | Lecture 7 | Thu, Nov 12 |
+| HW8, HW9, HW10 | Lectures 8–10 | Thu, Nov 19 |
+| HW11 | Lecture 11 | Tue, Nov 24 |
+| HW12 | Lecture 12 | Thu, Nov 26 |
+| HW13 | Lecture 13 | Fri, Dec 4 |
+| HW14 | Lecture 14 | Fri, Dec 4 |
 
-9:00 - 10:40, Nov 5, Thursday
-7. Multisets (lecture note 7)
-Submission deadline of HW7: 18:00 of Nov 12 (JST)
+## Important Notes
 
-10:50 - 12:30, Nov 10, Tuesday
-8. A Programming Language Processor - Interpreter (lecture note 8)
+- All dates and times are in Japan Standard Time (JST).
+- Check the corresponding lecture notes and homework instructions before each deadline.
+- HW8, HW9, and HW10 share the same submission deadline.
+- HW13 and HW14 share the same submission deadline.
+- The tutorial on November 26 is intended for exam preparation.
 
-9:00 - 10:40, Nov 12, Thursday
-9. A Programming Language Processor - Virtual Machine (lecture note 9)
-
-13:30 - 15:10, Nov 12, Thursday
-10. A Programming Language Processor - Compiler (lecture note 10)
-Submission deadline of HW8, 9, and 10: 18:00 of Nov 19 (JST)
-
-10:50 - 12:30, Nov 17, Tuesday
-11. Program Verification - Natural Numbers (lecture note 11)
-Submission deadline of HW11: 18:00 of Nov 24 (JST)
-
-9:00 - 10:40, Nov 19, Thursday
-12. Pregram Verification - Lists (lecture note 12)
-Submission deadline of HW12: 18:00 of Nov 26 (JST)
-
-10:50 - 12:30, Nov 24, Tuesday
-13. Verification of Arithmetic Caclulator Compiler (lecture note 13)
-Submission deadline of HW13: 18:00 of Dec 4 (JST)
-
-9:00 - 10:40, Nov 26, Thursday
-14. Proof Assistant (lecture note 14)
-Submission deadline of HW14: 18:00 of Dec 4(JST)
-
-13:30 - 15:10, Nov 26, Thursday
-Tutorial Hour (for Exam)
-
-10:50 - 12:30, Dec 01, Tuesday
-Exam
   -----------------------------------------------------------------------------------------------------------------------------------
 
 **Schedule note:** The official page states that the schedule was
