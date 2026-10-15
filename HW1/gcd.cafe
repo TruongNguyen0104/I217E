@@ -1,0 +1,12 @@
+openNAT .
+opgcd: Nat Nat-> Nat .
+varX : Nat .
+varNzY: NzNat.
+eqgcd(X,0) = X .
+eqgcd(X,NzY) = gcd(NzY,Xrem NzY) . --What follows --on a line is a comment.
+redgcd(0,0) . --compute the gcdof 0 & 0
+redgcd(2,0) . --compute the gcdof 2 & 0
+redgcd(0,2) . --compute the gcdof 0 & 2
+redgcd(24,36) . --compute the gcdof 24 & 36
+redgcd(2015,31031) . --compute the gcdof 2015 & 31031
+close
