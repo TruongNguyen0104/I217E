@@ -43,59 +43,68 @@ The following schedule and deadlines are transcribed from the official
 course website. All deadlines are **Japan Standard Time (JST, UTC+9)**.
 
   -----------------------------------------------------------------------------------------------------------------------------------
-  \#                Date and time     Topic                                                                         Assignment
-                                                                                                                    deadline
-  ----------------- ----------------- ----------------------------------------------------------------------------- -----------------
-  1                 Tue, Oct 13,      [Sorts, Operators, Terms and                                                  HW1 --- Oct 20,
-                    10:50--12:30      Equations](https://www.jaist.ac.jp/~ogata/lecture/i217e/lectureNote1.pdf)     18:00
+  10:50 - 12:30, Oct 13, Tuesday
+1. Sorts, Operators, Terms and Equations (lecture note 1)
+Submission deadline of HW1: 18:00 of Oct 20 (JST)
 
-  2                 Thu, Oct 15,      [Modules, Order Sorts and Lists of Natural                                    HW2 --- Oct 22,
-                    09:00--10:40      Numbers](https://www.jaist.ac.jp/~ogata/lecture/i217e/lectureNote2.pdf)       18:00
+9:00 - 10:40, Oct 15, Thursday
+2. Modules, Order Sorts and Lists of Natural Numbers (lecture note 2)
+Submission deadline of HW2: 18:00 of Oct 22 (JST)
 
-  3                 Thu, Oct 15,      [Term                                                                         HW3 --- Oct 27,
-                    13:30--15:10      Rewriting](https://www.jaist.ac.jp/~ogata/lecture/i217e/lectureNote3.pdf)     18:00
+13:30 - 15:10, Oct 15, Thursday
+3. Term Rewriting (lecture note 3)
+Submission deadline of HW3: 18:00 of Oct 27 (JST)
 
-  ---               Tue, Oct 20,      Tutorial hour for Lecture 3                                                   ---
-                    10:50--12:30                                                                                    
+10:50 - 12:30, Oct 20, Tuesday
+Tutorial Hour (for lecture note 3)
 
-  4                 Thu, Oct 22,      Parametrized Modules                                                          HW4 --- Oct 29,
-                    09:00--10:40                                                                                    18:00
+9:00 - 10:40, Oct 22, Thursday
+4. Parametrized Modules (lecture note 4)
+Submission deadline of HW4: 18:00 of Oct 29 (JST)
 
-  5                 Thu, Oct 22,      [Tables](https://www.jaist.ac.jp/~ogata/lecture/i217e/lectureNote5.pdf)       HW5 --- Nov 4,
-                    13:30--15:10                                                                                    18:00
+13:30 - 15:10, Oct 22, Thursday
+5. Tables (lecture note 5) 
+Submission deadline of HW5: 18:00 of Nov 4 (JST)
 
-  6                 Tue, Oct 27,      [Infinite                                                                     HW6 --- Nov 6,
-                    10:50--12:30      Lists](https://www.jaist.ac.jp/~ogata/lecture/i217e/lectureNote6.pdf)         18:00
+10:50 - 12:30, Oct 27, Thursday
+6. Infinite Lists (lecture note 6)
+Submission deadline of HW6: 18:00 of Nov 6 (JST)
 
-  7                 Thu, Nov 5,       [Multisets](https://www.jaist.ac.jp/~ogata/lecture/i217e/lectureNote7.pdf)    HW7 --- Nov 12,
-                    09:00--10:40                                                                                    18:00
+9:00 - 10:40, Nov 5, Thursday
+7. Multisets (lecture note 7)
+Submission deadline of HW7: 18:00 of Nov 12 (JST)
 
-  8                 Tue, Nov 10,      [A Programming Language Processor ---                                         Part of HW8--10
-                    10:50--12:30      Interpreter](https://www.jaist.ac.jp/~ogata/lecture/i217e/lectureNote8.pdf)   
+10:50 - 12:30, Nov 10, Tuesday
+8. A Programming Language Processor - Interpreter (lecture note 8)
 
-  9                 Thu, Nov 12,      [A Programming Language Processor --- Virtual                                 Part of HW8--10
-                    09:00--10:40      Machine](https://www.jaist.ac.jp/~ogata/lecture/i217e/lectureNote9.pdf)       
+9:00 - 10:40, Nov 12, Thursday
+9. A Programming Language Processor - Virtual Machine (lecture note 9)
 
-  10                Thu, Nov 12,      [A Programming Language Processor ---                                         HW8--10 --- Nov
-                    13:30--15:10      Compiler](https://www.jaist.ac.jp/~ogata/lecture/i217e/lectureNote10.pdf)     19, 18:00
+13:30 - 15:10, Nov 12, Thursday
+10. A Programming Language Processor - Compiler (lecture note 10)
+Submission deadline of HW8, 9, and 10: 18:00 of Nov 19 (JST)
 
-  11                Tue, Nov 17,      [Program Verification --- Natural                                             HW11 --- Nov 24,
-                    10:50--12:30      Numbers](https://www.jaist.ac.jp/~ogata/lecture/i217e/lectureNote11.pdf)      18:00
+10:50 - 12:30, Nov 17, Tuesday
+11. Program Verification - Natural Numbers (lecture note 11)
+Submission deadline of HW11: 18:00 of Nov 24 (JST)
 
-  12                Thu, Nov 19,      Program Verification --- Lists                                                HW12 --- Nov 26,
-                    09:00--10:40                                                                                    18:00
+9:00 - 10:40, Nov 19, Thursday
+12. Pregram Verification - Lists (lecture note 12)
+Submission deadline of HW12: 18:00 of Nov 26 (JST)
 
-  13                Tue, Nov 24,      Verification of Arithmetic Calculator Compiler                                HW13 --- Dec 4,
-                    10:50--12:30                                                                                    18:00
+10:50 - 12:30, Nov 24, Tuesday
+13. Verification of Arithmetic Caclulator Compiler (lecture note 13)
+Submission deadline of HW13: 18:00 of Dec 4 (JST)
 
-  14                Thu, Nov 26,      Proof Assistant                                                               HW14 --- Dec 4,
-                    09:00--10:40                                                                                    18:00
+9:00 - 10:40, Nov 26, Thursday
+14. Proof Assistant (lecture note 14)
+Submission deadline of HW14: 18:00 of Dec 4(JST)
 
-  ---               Thu, Nov 26,      Tutorial hour for the exam                                                    ---
-                    13:30--15:10                                                                                    
+13:30 - 15:10, Nov 26, Thursday
+Tutorial Hour (for Exam)
 
-  ---               Tue, Dec 1,       Exam                                                                          ---
-                    10:50--12:30                                                                                    
+10:50 - 12:30, Dec 01, Tuesday
+Exam
   -----------------------------------------------------------------------------------------------------------------------------------
 
 **Schedule note:** The official page states that the schedule was
