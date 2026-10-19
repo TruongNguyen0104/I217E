@@ -1,0 +1,313 @@
+
+-- ============================================================
+-- HW2 - EX01 : Functional Programming
+-- Student name: NGUYEN, Tat Truong
+-- Student ID: 2510467
+-- Email: truong.nguyen@jaist.ac.jp
+
+-- Modules: GCD, LCM, NAT-ERR, NATLIST, QSORT, ERATOSTHENES-SIEVE
+-- ============================================================
+
+
+-- ============================================================
+-- 1. GCD: Greatest Common Divisor
+-- ============================================================
+
+mod! GCD {
+    pr(NAT)
+
+    op gcd : Nat Zero -> Nat .
+    op gcd : Nat NzNat -> NzNat .
+    op gcd : Nat Nat -> Nat .
+
+    var X : Nat .
+    var NzY : NzNat .
+
+    eq gcd(X, 0) = X .
+    eq gcd(X, NzY) = gcd(NzY, X rem NzY) .
+}
+
+open GCD .
+red gcd(57, 3) .
+red gcd(24, 36) .
+red gcd(2015, 31031) .
+red gcd(0, 0) .
+close
+
+
+-- ============================================================
+-- 2. LCM: Least Common Multiple
+-- ============================================================
+
+mod! LCM {
+    pr(GCD)
+
+    op lcm : Nat Zero -> Zero .
+    op lcm : Nat NzNat -> Nat .
+    op lcm : Nat Nat -> Nat .
+
+    var X : Nat .
+    var NzY : NzNat .
+
+    eq lcm(X, 0) = 0 .
+    eq lcm(X, NzY) = (X quo gcd(X, NzY)) * NzY .
+}
+
+open LCM .
+red lcm(24, 36) .
+red lcm(2015, 31031) .
+red lcm(0, 36) .
+red lcm(36, 0) .
+close
+
+
+-- ============================================================
+-- 3. NAT-ERR: Error-aware natural numbers
+-- ============================================================
+
+mod! NAT-ERR {
+    pr(NAT)
+
+    [Nat ErrNat < Nat&Err]
+
+    op errNat : -> ErrNat {constr} .
+
+    op p_ : Zero -> ErrNat .
+    op p_ : ErrNat -> ErrNat .
+    op p_ : Nat&Err -> Nat&Err .
+
+    op _quo_ : Nat&Err Zero -> ErrNat .
+    op _quo_ : Nat&Err ErrNat -> ErrNat .
+    op _quo_ : ErrNat Nat&Err -> ErrNat .
+    op _quo_ : Nat&Err Nat&Err -> Nat&Err .
+
+    var NE : Nat&Err .
+
+    eq p 0 = errNat .
+    eq p errNat = errNat .
+
+    eq NE quo 0 = errNat .
+    eq NE quo errNat = errNat .
+    eq errNat quo NE = errNat .
+}
+
+open NAT-ERR .
+
+red p 1 .
+red p 0 .
+red p errNat .
+
+red 10 quo 3 .
+red 10 quo 0 .
+red 10 quo errNat .
+
+red errNat quo 3 .
+red errNat quo errNat .
+
+close
+
+
+-- ============================================================
+-- 4. NATLIST: Natural number lists
+-- ============================================================
+
+mod! NATLIST {
+    pr(NAT-ERR)
+
+    [Nil NnNatList < NatList]
+
+    op nil : -> Nil {constr} .
+    op _|_ : Nat NatList -> NnNatList {constr} .
+
+    op hd : Nil -> ErrNat .
+    op hd : NnNatList -> Nat .
+    op hd : NatList -> Nat&Err .
+
+    op tl : NatList -> NatList .
+
+    op _@_ : NatList NatList -> NatList .
+
+    op [_.._] : Nat Nat -> NatList .
+
+    op if_then {_} else {_} :
+        Bool NatList NatList -> NatList .
+
+    vars X Y : Nat .
+    vars L L2 : NatList .
+
+    -- Head
+    eq hd(nil) = errNat .
+    eq hd(X | L) = X .
+
+    -- Tail
+    eq tl(nil) = nil .
+    eq tl(X | L) = L .
+
+    -- Concatenation
+    eq nil @ L2 = L2 .
+    eq (X | L) @ L2 = X | (L @ L2) .
+
+    -- Range generation
+    eq [X .. Y] =
+        if X > Y
+        then {nil}
+        else {X | [X + 1 .. Y]} .
+
+    -- Conditional
+    eq if true then {L} else {L2} = L .
+    eq if false then {L} else {L2} = L2 .
+}
+
+open NATLIST .
+
+-- Test 1: Empty list
+red nil .
+
+-- Test 2: Construct lists
+red 1 | nil .
+red 1 | (2 | (3 | nil)) .
+
+-- Test 3: Head of an empty list
+red hd(nil) .
+
+-- Test 4: Head of non-empty lists
+red hd(1 | nil) .
+red hd(10 | (20 | (30 | nil))) .
+
+-- Test 5: Tail of an empty list
+red tl(nil) .
+
+-- Test 6: Tail of non-empty lists
+red tl(1 | nil) .
+red tl(10 | (20 | (30 | nil))) .
+
+-- Test 7: Concatenation with an empty list
+red nil @ (1 | (2 | nil)) .
+red (1 | (2 | nil)) @ nil .
+
+-- Test 8: Concatenation of non-empty lists
+red (1 | (2 | nil)) @ (3 | (4 | nil)) .
+
+-- Test 9: Range from 1 to 5
+red [1 .. 5] .
+
+-- Test 10: Single-element range
+red [3 .. 3] .
+
+-- Test 11: Empty range
+red [5 .. 3] .
+
+-- Test 12: Conditional chooses first list
+red if true then {1 | nil} else {2 | nil} .
+
+-- Test 13: Conditional chooses second list
+red if false then {1 | nil} else {2 | nil} .
+
+close
+
+
+-- ============================================================
+-- 5. QSORT: Quicksort
+-- ============================================================
+
+mod! QSORT {
+    pr(NATLIST)
+
+    op qsort : NatList -> NatList .
+
+    op partition :
+        Nat NatList NatList NatList -> NatList .
+
+    vars X Y : Nat .
+    vars L LL RL : NatList .
+
+    -- Sorting
+    eq qsort(nil) = nil .
+    eq qsort(X | nil) = X | nil .
+    eq qsort(X | Y | L) =
+        partition(X, Y | L, nil, nil) .
+
+    -- Partition
+    eq partition(X, nil, LL, RL) =
+        qsort(LL) @ (X | qsort(RL)) .
+
+    eq partition(X, Y | L, LL, RL) =
+        if Y < X
+        then {partition(X, L, Y | LL, RL)}
+        else {partition(X, L, LL, Y | RL)} .
+}
+
+open QSORT .
+
+-- Test 1: Mixed values
+red qsort(4 | 7 | 5 | 1 | 0 | 3 | 6 | 2 | nil) .
+
+-- Test 2: Empty list
+red qsort(nil) .
+
+-- Test 3: One element
+red qsort(5 | nil) .
+
+-- Test 4: Three elements
+red qsort(3 | 1 | 2 | nil) .
+
+-- Test 5: Duplicate elements
+red qsort(2 | 2 | 1 | nil) .
+
+close
+
+
+-- ============================================================
+-- 6. ERATOSTHENES-SIEVE: Prime numbers
+-- ============================================================
+
+mod! ERATOSTHENES-SIEVE {
+    pr(NATLIST)
+
+    op primesUpto : Nat -> NatList .
+    op sieve : NatList -> NatList .
+    op check : NzNat NatList -> NatList .
+
+    vars X Y : Nat .
+    var NzX : NzNat .
+    var L : NatList .
+
+    -- Generate candidates from 2 to X
+    eq primesUpto(X) = sieve([2 .. X]) .
+
+    -- Stop when the list is empty
+    eq sieve(nil) = nil .
+
+    -- Keep the first number and filter its multiples
+    eq sieve(X | L) =
+        X | sieve(check(X, L)) .
+
+    -- Filtering
+    eq check(NzX, nil) = nil .
+
+    eq check(NzX, Y | L) =
+        if NzX divides Y
+        then {check(NzX, L)}
+        else {Y | check(NzX, L)} .
+}
+
+open ERATOSTHENES-SIEVE .
+
+-- Test 1: Primes up to 10
+red primesUpto(10) .
+
+-- Test 2: Primes up to 20
+red primesUpto(20) .
+
+-- Test 3: Primes up to 50
+red primesUpto(50) .
+
+-- Test 4: Primes up to 100
+red primesUpto(100) .
+
+-- Test 5: Boundary cases
+red primesUpto(0) .
+red primesUpto(1) .
+red primesUpto(2) .
+
+close

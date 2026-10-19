@@ -1,0 +1,28 @@
+mod! GCD {
+    -- imports
+    pr(NAT) 
+    -- signature
+    op gcd : Nat Zero -> Nat .
+    op gcd : Nat NzNat -> NzNat .
+    op gcd : Nat Nat -> Nat . -- CafeOBJvars
+    var X : Nat .
+    var NzY : NzNat . -- equations
+    eq gcd(X,0) = X .
+    eq gcd(X,NzY) = gcd(NzY,X rem NzY) .
+}
+
+mod! LCM {
+    pr(GCD)
+    op lcm : Nat Zero -> Zero .
+    op lcm : Nat NzNat -> Nat .
+    op lcm : Nat Nat -> Nat .
+    var X : Nat .
+    var NzY : NzNat .
+    eq lcm(X,0) = 0 .
+    eq lcm(X,NzY) = (X quo gcd(X,NzY)) * NzY .
+}
+
+open LCM .
+red lcm(24,36) . -- compute the lcm of 24 & 36
+red lcm(2015,31031) . -- compute the lcm of 2015 & 31031
+close

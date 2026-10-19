@@ -1,0 +1,108 @@
+mod! NAT-ERR {  
+    pr(NAT)
+    [Nat ErrNat < Nat&Err]
+    op errNat : -> ErrNat {constr} .
+    op p_ : Zero -> ErrNat .
+    op p_ : ErrNat -> ErrNat .
+    op p_ : Nat&Err -> Nat&Err .
+    op _quo_ : Nat&Err Zero -> ErrNat .
+    op _quo_ : Nat&Err ErrNat -> ErrNat .
+    op _quo_ : ErrNat Nat&Err -> ErrNat .
+    op _quo_ : Nat&Err Nat&Err -> Nat&Err .
+    var NE : Nat&Err .
+    eq p 0 = errNat .
+    eq p errNat = errNat .
+    eq NE quo 0 = errNat .
+    eq NE quo errNat = errNat .
+    eq errNat quo NE = errNat .
+}
+
+mod! NATLIST {  
+    pr(NAT-ERR)
+    [Nil NnNatList < NatList]
+    vars X Y : Nat .
+    vars L L2 : NatList .
+    op nil : -> Nil {constr} .
+    op _|_ : Nat NatList -> NnNatList {constr} . 
+    op hd : Nil -> ErrNat .
+    op hd : NnNatList -> Nat .
+    op hd : NatList -> Nat&Err .
+    eq hd(nil) = errNat .
+    eq hd(X | L) = X .
+    op tl : NatList -> NatList .
+    op _@_ : NatList NatList -> NatList .
+    op [_.._] : Nat Nat -> NatList .
+    op if_then {_} else {_} : Bool NatList NatList -> NatList .
+    eq tl(nil) = nil .
+    eq tl(X | L) = L .
+    eq nil @ L2 = L2 .
+    eq (X | L) @ L2 = X | (L @ L2) .
+    eq [X .. Y] = if X > Y then {nil} else {X | [X + 1 .. Y]} .
+    eq if true then {L} else {L2} = L .
+    eq if false then {L} else {L2} = L2 .
+}
+
+
+open NATLIST .
+
+-- Test 1: Empty list
+red nil .
+
+-- Test 2: Construct a list
+red 1 | nil .
+red 1 | (2 | (3 | nil)) .
+
+-- Test 3: Head of an empty list
+red hd(nil) .
+-- Expected: errNat
+
+-- Test 4: Head of a non-empty list
+red hd(1 | nil) .
+-- Expected: 1
+
+red hd(10 | (20 | (30 | nil))) .
+-- Expected: 10
+
+-- Test 5: Tail of an empty list
+red tl(nil) .
+-- Expected: nil
+
+-- Test 6: Tail of a non-empty list
+red tl(1 | nil) .
+-- Expected: nil
+
+red tl(10 | (20 | (30 | nil))) .
+-- Expected: 20 | (30 | nil)
+
+-- Test 7: Concatenate with an empty list
+red nil @ (1 | (2 | nil)) .
+-- Expected: 1 | (2 | nil)
+
+red (1 | (2 | nil)) @ nil .
+-- Expected: 1 | (2 | nil)
+
+-- Test 8: Concatenate two non-empty lists
+red (1 | (2 | nil)) @ (3 | (4 | nil)) .
+-- Expected: 1 | (2 | (3 | (4 | nil)))
+
+-- Test 9: Generate a range
+red [1 .. 5] .
+-- Expected: 1 | (2 | (3 | (4 | (5 | nil))))
+
+-- Test 10: Single-element range
+red [3 .. 3] .
+-- Expected: 3 | nil
+
+-- Test 11: Empty range when start > end
+red [5 .. 3] .
+-- Expected: nil
+
+-- Test 12: Conditional selects the first list
+red if true then {1 | nil} else {2 | nil} .
+-- Expected: 1 | nil
+
+-- Test 13: Conditional selects the second list
+red if false then {1 | nil} else {2 | nil} .
+-- Expected: 2 | nil
+
+close

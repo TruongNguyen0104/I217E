@@ -1,0 +1,46 @@
+mod! MERGE-SORT {
+    pr(NAT)
+    [List Pair]
+
+    op nil : -> List {constr} .
+    op _|_ : Nat List -> List {constr} .
+
+    op pair : List List -> Pair {constr} .
+    op LL : Pair -> List .
+    op LR : Pair -> List .
+
+    op split : List -> Pair .
+    op merge : List List -> List .
+    op msort : List -> List .
+
+    vars X Y : Nat .
+    vars L L1 L2 : List .
+
+    eq LL(pair(L1, L2)) = L1 .
+    eq LR(pair(L1, L2)) = L2 .
+
+    eq split(nil) = pair(nil, nil) .
+    eq split(X | nil) = pair(X | nil, nil) .
+    eq split(X | Y | L) =
+        pair(X | LL(split(L)),
+             Y | LR(split(L))) .
+
+    eq merge(nil, L) = L .
+    eq merge(L, nil) = L .
+    ceq merge(X | L1, Y | L2) =
+        X | merge(L1, Y | L2) if X <= Y .
+    ceq merge(X | L1, Y | L2) =
+        Y | merge(X | L1, L2) if X > Y .
+
+    eq msort(nil) = nil .
+    eq msort(X | nil) = X | nil .
+    eq msort(X | Y | L) =
+        merge(msort(LL(split(X | Y | L))),
+              msort(LR(split(X | Y | L)))) .
+}
+
+open MERGE-SORT .
+red msort(5 | 2 | 8 | 1 | nil) .
+red msort(7 | 3 | 9 | 2 | 5 | nil) .
+red msort(4 | 1 | 4 | 2 | 1 | nil) .
+close

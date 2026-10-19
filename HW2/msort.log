@@ -1,0 +1,69 @@
+PS C:\Users\nguye\Documents\functional programming\I217E\HW2> cafeobj .\msort.cafe
+
+-- loading standard prelude
+
+            -- CafeOBJ system Version 1.5.9(PigNose0.99) --
+                   built: 2018 Dec 27 Thu 4:43:07 GMT
+                         prelude file: std.bin
+                                  ***
+                      2026 Oct 17 Sat 7:18:55 GMT
+                            Type ? for help
+                                  ***
+                  -- Containing PigNose Extensions --
+                                  ---
+                             built on SBCL
+                                1.4.14
+processing input : C:/Users/nguye/Documents/functional programming/I217E/HW2/././msort.cafe
+
+-- defining module! MERGE-SORT
+-- reading in file  : nat
+
+processing input : C:/cafeobj-1.5-sbcl/lib/nat.cafe
+
+-- defining module! NAT
+-- reading in file  : nznat
+
+processing input : C:/cafeobj-1.5-sbcl/lib/nznat.cafe
+
+-- defining module! NZNAT
+-- reading in file  : bool
+
+processing input : C:/cafeobj-1.5-sbcl/lib/bool.cafe
+
+processing input : C:/cafeobj-1.5-sbcl/lib/base_bool.cafe
+
+processing input : C:/cafeobj-1.5-sbcl/lib/truth.cafe
+
+-- defining module! TRUTH
+-- reading in file  : truth
+
+-- done reading in file: truth
+ done.
+-- defining module* BASE-BOOL
+-- reading in file  : eql
+
+processing input : C:/cafeobj-1.5-sbcl/lib/eql.cafe
+
+-- defining module! EQL done.
+-- done reading in file: eql
+ done.
+processing input : C:/cafeobj-1.5-sbcl/lib/sys_bool.cafe
+
+-- defining module! BOOL done.
+-- done reading in file: bool
+ done.
+-- done reading in file: nznat
+ done.
+-- done reading in file: nat
+ done.
+-- opening module MERGE-SORT done.
+-- reduce in %MERGE-SORT : (msort((5 | (2 | (8 | (1 | nil)))))):List
+(1 | (2 | (5 | (8 | nil)))):List
+(0.0000 sec for parse, 0.0000 sec for 73 rewrites + 119 matches)
+-- reduce in %MERGE-SORT : (msort((7 | (3 | (9 | (2 | (5 | nil))))))):List
+(2 | (3 | (5 | (7 | (9 | nil))))):List
+(0.0000 sec for parse, 0.0000 sec for 93 rewrites + 165 matches)
+-- reduce in %MERGE-SORT : (msort((4 | (1 | (4 | (2 | (1 | nil))))))):List
+(1 | (1 | (2 | (4 | (4 | nil))))):List
+(0.0000 sec for parse, 0.0000 sec for 94 rewrites + 165 matches)
+CafeOBJ> 

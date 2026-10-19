@@ -1,0 +1,210 @@
+PS C:\Users\nguye\Documents\functional programming\I217E\HW2> cafeobj .\ex1.cafe
+
+-- loading standard prelude
+
+            -- CafeOBJ system Version 1.5.9(PigNose0.99) --
+                   built: 2018 Dec 27 Thu 4:43:07 GMT
+                         prelude file: std.bin
+                                  ***
+                      2026 Oct 17 Sat 7:08:25 GMT
+                            Type ? for help
+                                  ***
+                  -- Containing PigNose Extensions --
+                                  ---
+                             built on SBCL
+                                1.4.14
+processing input : C:/Users/nguye/Documents/functional programming/I217E/HW2/././ex1.cafe
+
+-- defining module! GCD
+-- reading in file  : nat
+
+processing input : C:/cafeobj-1.5-sbcl/lib/nat.cafe
+
+-- defining module! NAT
+-- reading in file  : nznat
+
+processing input : C:/cafeobj-1.5-sbcl/lib/nznat.cafe
+
+-- defining module! NZNAT
+-- reading in file  : bool
+
+processing input : C:/cafeobj-1.5-sbcl/lib/bool.cafe
+
+processing input : C:/cafeobj-1.5-sbcl/lib/base_bool.cafe
+
+processing input : C:/cafeobj-1.5-sbcl/lib/truth.cafe
+
+-- defining module! TRUTH
+-- reading in file  : truth
+
+-- done reading in file: truth
+ done.
+-- defining module* BASE-BOOL
+-- reading in file  : eql
+
+processing input : C:/cafeobj-1.5-sbcl/lib/eql.cafe
+
+-- defining module! EQL done.
+-- done reading in file: eql
+ done.
+processing input : C:/cafeobj-1.5-sbcl/lib/sys_bool.cafe
+
+-- defining module! BOOL done.
+-- done reading in file: bool
+ done.
+-- done reading in file: nznat
+ done.
+-- done reading in file: nat
+ done.
+-- opening module GCD done.
+-- reduce in %GCD : (gcd(57,3)):NzNat
+(3):NzNat
+(0.0000 sec for parse, 0.0000 sec for 3 rewrites + 3 matches)
+-- reduce in %GCD : (gcd(24,36)):NzNat
+(12):NzNat
+(0.0000 sec for parse, 0.0000 sec for 7 rewrites + 7 matches)
+-- reduce in %GCD : (gcd(2015,31031)):NzNat
+(403):NzNat
+(0.0000 sec for parse, 0.0000 sec for 9 rewrites + 9 matches)
+-- reduce in %GCD : (gcd(0,0)):Nat
+(0):Zero
+(0.0000 sec for parse, 0.0000 sec for 1 rewrites + 1 matches)
+-- defining module! LCM done.
+-- opening module LCM done.
+-- reduce in %LCM : (lcm(24,36)):Nat
+(72):NzNat
+(0.0000 sec for parse, 0.0000 sec for 10 rewrites + 11 matches)
+-- reduce in %LCM : (lcm(2015,31031)):Nat
+(155155):NzNat
+(0.0000 sec for parse, 0.0000 sec for 12 rewrites + 13 matches)
+-- reduce in %LCM : (lcm(0,36)):Nat
+(0):Zero
+(0.0000 sec for parse, 0.0000 sec for 6 rewrites + 7 matches)
+-- reduce in %LCM : (lcm(36,0)):Zero
+(0):Zero
+(0.0000 sec for parse, 0.0000 sec for 1 rewrites + 1 matches)
+-- defining module! NAT-ERR done.
+-- opening module NAT-ERR done.
+-- reduce in %NAT-ERR : (p 1):Nat
+(0):Zero
+(0.0000 sec for parse, 0.0000 sec for 1 rewrites + 1 matches)
+-- reduce in %NAT-ERR : (p 0):ErrNat
+(errNat):ErrNat
+(0.0000 sec for parse, 0.0000 sec for 1 rewrites + 1 matches)
+-- reduce in %NAT-ERR : (p errNat):ErrNat
+(errNat):ErrNat
+(0.0000 sec for parse, 0.0000 sec for 1 rewrites + 1 matches)
+-- reduce in %NAT-ERR : (10 quo 3):Nat
+(3):NzNat
+(0.0000 sec for parse, 0.0000 sec for 1 rewrites + 1 matches)
+-- reduce in %NAT-ERR : (10 quo 0):ErrNat
+(errNat):ErrNat
+(0.0000 sec for parse, 0.0000 sec for 1 rewrites + 1 matches)
+-- reduce in %NAT-ERR : (10 quo errNat):ErrNat
+(errNat):ErrNat
+(0.0000 sec for parse, 0.0000 sec for 1 rewrites + 1 matches)
+-- reduce in %NAT-ERR : (errNat quo 3):ErrNat
+(errNat):ErrNat
+(0.0000 sec for parse, 0.0000 sec for 1 rewrites + 1 matches)
+-- reduce in %NAT-ERR : (errNat quo errNat):ErrNat
+(errNat):ErrNat
+(0.0000 sec for parse, 0.0000 sec for 1 rewrites + 1 matches)
+-- defining module! NATLIST done.
+-- opening module NATLIST done.
+-- reduce in %NATLIST : (nil):Nil
+(nil):Nil
+(0.0000 sec for parse, 0.0000 sec for 0 rewrites + 0 matches)
+-- reduce in %NATLIST : (1 | nil):NnNatList
+(1 | nil):NnNatList
+(0.0000 sec for parse, 0.0000 sec for 0 rewrites + 0 matches)
+-- reduce in %NATLIST : (1 | (2 | (3 | nil))):NnNatList
+(1 | (2 | (3 | nil))):NnNatList
+(0.0000 sec for parse, 0.0000 sec for 0 rewrites + 0 matches)
+-- reduce in %NATLIST : (hd(nil)):ErrNat
+(errNat):ErrNat
+(0.0000 sec for parse, 0.0000 sec for 1 rewrites + 1 matches)
+-- reduce in %NATLIST : (hd((1 | nil))):Nat
+(1):NzNat
+(0.0000 sec for parse, 0.0000 sec for 1 rewrites + 1 matches)
+-- reduce in %NATLIST : (hd((10 | (20 | (30 | nil))))):Nat
+(10):NzNat
+(0.0000 sec for parse, 0.0000 sec for 1 rewrites + 1 matches)
+-- reduce in %NATLIST : (tl(nil)):NatList
+(nil):Nil
+(0.0000 sec for parse, 0.0000 sec for 1 rewrites + 1 matches)
+-- reduce in %NATLIST : (tl((1 | nil))):NatList
+(nil):Nil
+(0.0000 sec for parse, 0.0000 sec for 1 rewrites + 2 matches)
+-- reduce in %NATLIST : (tl((10 | (20 | (30 | nil))))):NatList
+(20 | (30 | nil)):NnNatList
+(0.0000 sec for parse, 0.0000 sec for 1 rewrites + 2 matches)
+-- reduce in %NATLIST : (nil @ (1 | (2 | nil))):NatList
+(1 | (2 | nil)):NnNatList
+(0.0000 sec for parse, 0.0000 sec for 1 rewrites + 1 matches)
+-- reduce in %NATLIST : ((1 | (2 | nil)) @ nil):NatList
+(1 | (2 | nil)):NnNatList
+(0.0000 sec for parse, 0.0000 sec for 3 rewrites + 5 matches)
+-- reduce in %NATLIST : ((1 | (2 | nil)) @ (3 | (4 | nil))):NatList
+(1 | (2 | (3 | (4 | nil)))):NnNatList
+(0.0000 sec for parse, 0.0000 sec for 3 rewrites + 5 matches)
+-- reduce in %NATLIST : ([ 1 .. 5 ]):NatList
+(1 | (2 | (3 | (4 | (5 | nil))))):NnNatList
+(0.0000 sec for parse, 0.0000 sec for 23 rewrites + 28 matches)
+-- reduce in %NATLIST : ([ 3 .. 3 ]):NatList
+(3 | nil):NnNatList
+(0.0000 sec for parse, 0.0000 sec for 7 rewrites + 8 matches)
+-- reduce in %NATLIST : ([ 5 .. 3 ]):NatList
+(nil):Nil
+(0.0000 sec for parse, 0.0000 sec for 3 rewrites + 3 matches)
+-- reduce in %NATLIST : (if true then { (1 | nil) } else { (2 | nil) }):NatList
+(1 | nil):NnNatList
+(0.0000 sec for parse, 0.0000 sec for 1 rewrites + 1 matches)
+-- reduce in %NATLIST : (if false then { (1 | nil) } else { (2 | nil) }):NatList
+(2 | nil):NnNatList
+(0.0000 sec for parse, 0.0000 sec for 1 rewrites + 2 matches)
+-- defining module! QSORT done.
+-- opening module QSORT done.
+-- reduce in %QSORT : (qsort((4 | (7 | (5 | (1 | (0 | (3 | (6 | (2 | nil)))))))))):NatList
+(0 | (1 | (2 | (3 | (4 | (5 | (6 | (7 | nil)))))))):NnNatList
+(0.0000 sec for parse, 0.0000 sec for 64 rewrites + 105 matches)
+-- reduce in %QSORT : (qsort(nil)):NatList
+(nil):Nil
+(0.0000 sec for parse, 0.0000 sec for 1 rewrites + 1 matches)
+-- reduce in %QSORT : (qsort((5 | nil))):NatList
+(5 | nil):NnNatList
+(0.0000 sec for parse, 0.0000 sec for 1 rewrites + 2 matches)
+-- reduce in %QSORT : (qsort((3 | (1 | (2 | nil))))):NatList
+(1 | (2 | (3 | nil))):NnNatList
+(0.0000 sec for parse, 0.0000 sec for 21 rewrites + 32 matches)
+-- reduce in %QSORT : (qsort((2 | (2 | (1 | nil))))):NatList
+(1 | (2 | (2 | nil))):NnNatList
+(0.0000 sec for parse, 0.0000 sec for 12 rewrites + 20 matches)
+-- defining module! ERATOSTHENES-SIEVE
+[Warning]: axiom : eq sieve((X | L)) = (X | sieve(check(X,L)))
+    contains error operators. done.
+-- opening module ERATOSTHENES-SIEVE
+[Warning]: axiom : eq sieve((X | L)) = (X | sieve(check(X,L)))
+ done.    contains error operators.
+-- reduce in %ERATOSTHENES-SIEVE : (primesUpto(10)):NatList
+(2 | (3 | (5 | (7 | nil)))):NnNatList
+(0.0000 sec for parse, 0.0000 sec for 85 rewrites + 117 matches)
+-- reduce in %ERATOSTHENES-SIEVE : (primesUpto(20)):NatList
+(2 | (3 | (5 | (7 | (11 | (13 | (17 | (19 | nil)))))))):NnNatList
+(0.0000 sec for parse, 0.0000 sec for 220 rewrites + 318 matches)
+-- reduce in %ERATOSTHENES-SIEVE : (primesUpto(50)):NatList
+(2 | (3 | (5 | (7 | (11 | (13 | (17 | (19 | (23 | (29 | (31 | (37 | (41 | (43 | (47 | nil))))))))))))))):NnNatList
+(0.0000 sec for parse, 0.0000 sec for 690 rewrites + 1026 matches)
+-- reduce in %ERATOSTHENES-SIEVE : (primesUpto(100)):NatList
+(2 | (3 | (5 | (7 | (11 | (13 | (17 | (19 | (23 | (29 | (31 | (37 | (41 | (43 | (47 | (53 | (59 | (61 | (67 | (71 | (73 | (79 | (83 | (89 | (97 | nil))))))))))))))))))))))))):NnNatList
+(0.0000 sec for parse, 0.0160 sec for 1684 rewrites + 2556 matches)
+-- reduce in %ERATOSTHENES-SIEVE : (primesUpto(0)):NatList
+(nil):Nil
+(0.0000 sec for parse, 0.0000 sec for 5 rewrites + 6 matches)
+-- reduce in %ERATOSTHENES-SIEVE : (primesUpto(1)):NatList
+(nil):Nil
+(0.0000 sec for parse, 0.0000 sec for 5 rewrites + 5 matches)
+-- reduce in %ERATOSTHENES-SIEVE : (primesUpto(2)):NatList
+(2 | nil):NnNatList
+(0.0000 sec for parse, 0.0000 sec for 11 rewrites + 13 matches)
+
+CafeOBJ> 

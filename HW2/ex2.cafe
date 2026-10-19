@@ -1,0 +1,219 @@
+
+-- ============================================================
+-- HW2 - EX02 : Functional Programming
+-- Student name: NGUYEN, Tat Truong
+-- Student ID: 2510467
+-- Email: truong.nguyen@jaist.ac.jp
+-- ============================================================
+
+
+-- ============================================================
+-- 1. GCD: Greatest Common Divisor
+-- ============================================================
+
+mod! GCD {
+    pr(NAT)
+
+    op gcd : Nat Nat -> Nat .
+
+    var X : Nat .
+    var NzY : NzNat .
+
+    eq gcd(X, 0) = X .
+    eq gcd(X, NzY) = gcd(NzY, X rem NzY) .
+}
+
+open GCD .
+
+-- Test 1: gcd(0, 0) = 0
+red gcd(0, 0) .
+
+-- Test 2: gcd(2, 0) = 2
+red gcd(2, 0) .
+
+-- Test 3: gcd(0, 2) = 2
+red gcd(0, 2) .
+
+-- Test 4: gcd(24, 36) = 12
+red gcd(24, 36) .
+
+-- Test 5: gcd(2015, 31031) = 403
+red gcd(2015, 31031) .
+
+-- Additional tests
+red gcd(17, 13) .
+red gcd(100, 25) .
+
+close
+
+
+-- ============================================================
+-- 2. FACT: Factorial
+-- ============================================================
+
+mod! FACT {
+    pr(NAT)
+
+    op fact : Nat -> Nat .
+
+    var NzX : NzNat .
+
+    eq fact(0) = 1 .
+    eq fact(NzX) = NzX * fact(p NzX) .
+}
+
+open FACT .
+
+-- Test 1: 0! = 1
+red fact(0) .
+
+-- Test 2: 1! = 1
+red fact(1) .
+
+-- Test 3: 5! = 120
+red fact(5) .
+
+-- Test 4: 10! = 3628800
+red fact(10) .
+
+-- Large factorial tests
+red fact(20) .
+red fact(100) .
+
+-- Avoid very large recursive tests such as fact(10000)
+-- because they may cause stack overflow.
+
+close
+
+
+-- ============================================================
+-- 3. OEDC-FACT: Odd-Even Divide-and-Conquer Factorial
+-- ============================================================
+
+mod! OEDC-FACT {
+    pr(NAT)
+
+    op cond : Bool Nat Nat -> Nat .
+    op g : Nat Nat -> Nat .
+    op oedc-fact : Nat -> Nat .
+
+    vars X Y : Nat .
+    var NzX : NzNat .
+
+    -- Conditional helper
+    eq cond(true, X, Y) = X .
+    eq cond(false, X, Y) = Y .
+
+    -- Odd-even divide-and-conquer product
+    eq g(X, Y) =
+        cond(X > Y,
+             g(X, 2 * Y) * g(sd(X, Y), 2 * Y),
+             X) .
+
+    -- Factorial
+    eq oedc-fact(0) = 1 .
+    eq oedc-fact(NzX) = g(NzX, 1) .
+}
+
+open OEDC-FACT .
+
+-- Test 1: 0! = 1
+red oedc-fact(0) .
+
+-- Test 2: 1! = 1
+red oedc-fact(1) .
+
+-- Test 3: 5! = 120
+red oedc-fact(5) .
+
+-- Test 4: 10! = 3628800
+red oedc-fact(10) .
+
+-- Larger test
+red oedc-fact(20) .
+
+-- Original assignment test; may take longer
+red oedc-fact(10000) .
+
+close
+
+
+-- ============================================================
+-- 4. FIBONACCI
+-- ============================================================
+
+mod! FIBONACCI {
+    pr(NAT)
+
+    op fib : Nat -> Nat .
+    op sfib : Nat -> Nat .
+
+    var NzX : NzNat .
+
+    -- Fibonacci
+    eq fib(0) = 0 .
+    eq fib(NzX) = sfib(p NzX) .
+
+    -- Successor Fibonacci helper
+    eq sfib(0) = 1 .
+    eq sfib(NzX) = fib(NzX) + fib(p NzX) .
+}
+
+open FIBONACCI .
+
+-- Test 1: fib(0) = 0
+red fib(0) .
+
+-- Test 2: fib(1) = 1
+red fib(1) .
+
+-- Test 3: fib(2) = 1
+red fib(2) .
+
+-- Test 4: fib(10) = 55
+red fib(10) .
+
+-- Test 5: fib(20) = 6765
+red fib(20) .
+
+-- Larger test; may take time
+red fib(30) .
+
+close
+
+
+-- ============================================================
+-- 5. ACKERMANN FUNCTION
+-- ============================================================
+
+mod! ACKERMANN {
+    pr(NAT)
+
+    op ack : Nat Nat -> Nat .
+
+    var Y : Nat .
+    vars NzX NzY : NzNat .
+
+    eq ack(0, Y) = Y + 1 .
+    eq ack(NzX, 0) = ack(p NzX, 1) .
+    eq ack(NzX, NzY) = ack(p NzX, ack(NzX, p NzY)) .
+}
+
+open ACKERMANN .
+
+-- Test 1: ack(0, 0) = 1
+red ack(0, 0) .
+
+-- Test 2: ack(1, 1) = 3
+red ack(1, 1) .
+
+-- Test 3: ack(2, 2) = 7
+red ack(2, 2) .
+
+-- Test 4: ack(3, 2) = 29
+red ack(3, 2) .
+
+-- Test 5: ack(3, 3) = 61
+red ack(3, 3) .
+
+close
