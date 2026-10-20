@@ -1,0 +1,45 @@
+
+mod! MERGE-SORT {
+    pr(NAT)
+    [List]
+
+    op nil : -> List {constr} .
+    op _|_ : Nat List -> List {constr} .
+
+    op split : List List List -> List .
+    op merge : List List -> List .
+    op msort : List -> List .
+
+    vars X Y : Nat .
+    vars L LL LR : List .
+
+    -- Merge Sort
+    eq msort(nil) = nil .
+    eq msort(X | nil) = X | nil .
+    eq msort(X | Y | L) =
+        split(L, X | nil, Y | nil) .
+
+    -- Split into two alternating lists
+    eq split(nil, LL, LR) =
+        merge(msort(LL), msort(LR)) .
+    eq split(X | L, LL, LR) =
+        split(L, LR, X | LL) .
+
+    -- Merge two sorted lists
+    eq merge(nil, L) = L .
+    eq merge(L, nil) = L .
+
+    ceq merge(X | LL, Y | LR) =
+        X | merge(LL, Y | LR)
+        if X <= Y .
+
+    ceq merge(X | LL, Y | LR) =
+        Y | merge(X | LL, LR)
+        if X > Y .
+}
+
+open MERGE-SORT .
+red msort(5 | 2 | 8 | 1 | nil) .
+red msort(7 | 3 | 9 | 2 | 5 | nil) .
+red msort(4 | 1 | 4 | 2 | 1 | nil) .
+close
