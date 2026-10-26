@@ -1,0 +1,19 @@
+mod! GLIST1(E :: TRIV) {
+[Nil NnList < List]
+op nil : -> Nil {constr} .
+op _|_ : Elt.E List -> NnList {constr} .
+op _@_ : List List -> List .
+var X  : Elt.E .
+vars L L2 : List .
+eq nil @ L2 = L2 .
+eq (X | L) @ L2 = X | (L @ L2) .
+}
+
+open GLIST1(NAT) .
+  ops L1 L2 : List .
+  red nil @ nil .
+  red (1 | nil) @ nil .
+  red nil @ (2 | nil) .
+  red (1 | nil) @ (2 | nil) .
+  red (1 | (2 | nil)) @ (3 | nil) .
+close

@@ -61,9 +61,11 @@ mod! ERATOSTHENES-SIEVE {
     eq check(NzX,Y | L) = if NzX divides Y then {check(NzX,L)} else {Y | check(NzX,L)} .
 }
 
+set trace whole on
 open ERATOSTHENES-SIEVE .
-red primesUpto(10) .
-red primesUpto(20) .
-red primesUpto(50) .
-red primesUpto(100) .
+red primesUpto(4) .
+-- red primesUpto(20) .
+-- red primesUpto(50) .
+-- red primesUpto(100) .
 close
+set trace whole off

@@ -1,0 +1,64 @@
+mod* TRIV-ERR {  
+[Elt Err < Elt&Err]
+op err : -> Err .
+}
+
+mod! NAT-ERR {  
+    pr(NAT)
+    [Nat ErrNat < Nat&Err]
+    op errNat : -> ErrNat {constr} .
+    op p_ : Zero -> ErrNat .
+    op p_ : ErrNat -> ErrNat .
+    op p_ : Nat&Err -> Nat&Err .
+    op _quo_ : Nat&Err Zero -> ErrNat .
+    op _quo_ : Nat&Err ErrNat -> ErrNat .
+    op _quo_ : ErrNat Nat&Err -> ErrNat .
+    op _quo_ : Nat&Err Nat&Err -> Nat&Err .
+    var NE : Nat&Err .
+    eq p 0 = errNat .
+    eq p errNat = errNat .
+    eq NE quo 0 = errNat .
+    eq NE quo errNat = errNat .
+    eq errNat quo NE = errNat .
+}
+
+view TRIV-ERR2NAT-ERR from TRIV-ERR to NAT-ERR {
+sort Elt -> Nat,  
+sort Err -> ErrNat,  
+sort Elt&Err -> Nat&Err,
+op err -> errNat
+}
+
+mod! GLIST2(E :: TRIV-ERR) {
+[Nil NnList < List]
+op nil : -> Nil {constr} .
+op _|_ : Elt.E List -> NnList {constr} .
+op hd : Nil -> Err.E .
+op hd : NnList -> Elt.E .
+op hd : List -> Elt&Err.E .
+op tl : List -> List .
+op _@_ : List List -> List .
+var X  : Elt.E .
+vars L L2 : List .
+eq hd(nil) = err.E .
+eq hd(X | L) = X .
+eq tl(nil) = nil .
+eq tl(X | L) = L .
+eq nil @ L2 = L2 .
+eq (X | L) @ L2 = X | (L @ L2) .
+}
+
+mod! NATLIST7 {
+pr(GLIST2(E <= TRIV-ERR2NAT-ERR)
+* {sort List -> NatList,
+sort Nil -> NLNil,
+sort NnList -> NnNatList,
+op nil -> nlnil })
+}
+
+open NATLIST7 .
+    red hd(nlnil) .
+    red hd((4 | 3 | nlnil) @ (2 | 1 | 0 | nlnil)) .
+    red tl(nlnil) .
+    red tl((4 | 3 | nlnil) @ (2 | 1 | 0 | nlnil)) .
+close
