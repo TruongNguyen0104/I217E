@@ -1,0 +1,108 @@
+PS C:\Users\nguye\Documents\functional programming\I217E\HW4> cafeobj .\gmsort.cafe
+
+-- loading standard prelude
+
+            -- CafeOBJ system Version 1.5.9(PigNose0.99) --
+                   built: 2018 Dec 27 Thu 4:43:07 GMT
+                         prelude file: std.bin
+                                  ***
+                      2026 Oct 27 Tue 1:01:02 GMT
+                            Type ? for help
+                                  ***
+                  -- Containing PigNose Extensions --
+                                  ---
+                             built on SBCL
+                                1.4.14
+processing input : C:/Users/nguye/Documents/functional programming/I217E/HW4/././gmsort.cafe
+
+-- defining module* TRIV-ERR-ORD
+-- reading in file  : bool
+
+processing input : C:/cafeobj-1.5-sbcl/lib/bool.cafe
+
+processing input : C:/cafeobj-1.5-sbcl/lib/base_bool.cafe
+
+processing input : C:/cafeobj-1.5-sbcl/lib/truth.cafe
+
+-- defining module! TRUTH
+-- reading in file  : truth
+
+-- done reading in file: truth
+ done.
+-- defining module* BASE-BOOL
+-- reading in file  : eql
+
+processing input : C:/cafeobj-1.5-sbcl/lib/eql.cafe
+
+-- defining module! EQL done.
+-- done reading in file: eql
+ done.
+processing input : C:/cafeobj-1.5-sbcl/lib/sys_bool.cafe
+
+-- defining module! BOOL done.
+-- done reading in file: bool
+ done.
+-- defining module! NAT-ERR
+-- reading in file  : nat
+
+processing input : C:/cafeobj-1.5-sbcl/lib/nat.cafe
+
+-- defining module! NAT
+-- reading in file  : nznat
+
+processing input : C:/cafeobj-1.5-sbcl/lib/nznat.cafe
+
+-- defining module! NZNAT done.
+-- done reading in file: nznat
+ done.
+-- done reading in file: nat
+ done.
+-- defining module* TRIV-ERR done.
+-- defining module! GLIST-ERR done.
+-- defining module! GLIST-ERR-ORD done.
+-- defining module! GMSORT
+-- defining view  done. done.
+-- defining module! STRING-ERR
+-- reading in file  : string
+
+processing input : C:/cafeobj-1.5-sbcl/lib/string.cafe
+TRIV-ERR-ORD2NAT-ERR 
+-- defining module! STRING
+-- reading in file  : character
+
+processing input : C:/cafeobj-1.5-sbcl/lib/character.cafe
+
+-- defining module! CHARACTER done.
+-- done reading in file: character
+ done.
+-- done reading in file: string
+
+-- defining view  done. done.
+-- defining module! NATLIST9TRIV-ERR-ORD2STRING-ERR 
+-- defining view  done. done.
+-- defining module! STRLIST1TRIV-ERR-ORD2NATLIST9 
+-- defining view  done. done.
+-- opening module GMSORT(E <= TRIV-ERR-ORD2NAT-ERR)TRIV-ERR-ORD2STRLIST1  done.
+-- reduce in %GMSORT(E <= TRIV-ERR-ORD2NAT-ERR) : (msort((5 | (2 | (8 | (1 | nil)))))):List
+(1 | (2 | (5 | (8 | nil)))):List
+(0.0000 sec for parse, 0.0000 sec for 26 rewrites + 52 matches)
+-- reduce in %GMSORT(E <= TRIV-ERR-ORD2NAT-ERR) : (msort((7 | (3 | (9 | (2 | (5 | nil))))))):List
+(2 | (3 | (5 | (7 | (9 | nil))))):List
+(0.0000 sec for parse, 0.0000 sec for 42 rewrites + 85 matches)
+-- reduce in %GMSORT(E <= TRIV-ERR-ORD2NAT-ERR) : (msort((4 | (1 | (4 | (2 | (1 | nil))))))):List
+(1 | (1 | (2 | (4 | (4 | nil))))):List
+(0.0000 sec for parse, 0.0000 sec for 44 rewrites + 89 matches)
+-- opening module GMSORT(E <= TRIV-ERR-ORD2STRING-ERR) done.
+-- reduce in %GMSORT(E <= TRIV-ERR-ORD2STRING-ERR) : (msort(("Lisp" | ("Python" | ("Pascal" | ("CafeOBJ" | ("C" | ("Java" | ("Prolog" | ("Fortran" | nil)))))))))):List
+("C" | ("CafeOBJ" | ("Fortran" | ("Java" | ("Lisp" | ("Pascal" | ("Prolog" | ("Python" | nil)))))))):List
+(0.0000 sec for parse, 0.0000 sec for 93 rewrites + 190 matches)
+-- opening module GMSORT(E <= TRIV-ERR-ORD2NATLIST9) done.
+-- reduce in %GMSORT(E <= TRIV-ERR-ORD2NATLIST9) : (msort(((1 | (2 | nlnil)) | ((3 | (0 | (2 | nlnil))) | ((2 | nlnil) | ((0 | nlnil) | (nlnil | ((1 | (1 | nlnil)) | ((3 | (0 | (1 | nlnil))) | ((1 | (0 | nlnil)) | nil)))))))))):List
+(nlnil | ((0 | nlnil) | ((1 | (0 | nlnil)) | ((1 | (1 | nlnil)) | ((1 | (2 | nlnil)) | ((2 | nlnil) | ((3 | (0 | (1 | nlnil))) | ((3 | (0 | (2 | nlnil))) | nil)))))))):List
+(0.0000 sec for parse, 0.0000 sec for 303 rewrites + 583 matches)
+-- opening module GMSORT(E <= TRIV-ERR-ORD2STRLIST1) done.
+-- reduce in %GMSORT(E <= TRIV-ERR-ORD2STRLIST1) : (msort((("CafeOBJ" | ("Fortran" | slnil)) | (("Java" | ("C" | ("Fortran" | slnil))) | (("Fortran" | slnil) | (("C" | slnil) | (slnil | (("CafeOBJ" | ("CafeOBJ" | slnil)) | (("Java" | ("C" | ("CafeOBJ" | slnil))) | (("CafeOBJ" | ("C" | slnil)) | nil)))))))))):List
+(slnil | (("C" | slnil) | (("CafeOBJ" | ("C" | slnil)) | (("CafeOBJ" | ("CafeOBJ" | slnil)) | (("CafeOBJ" | ("Fortran" | slnil)) | (("Fortran" | slnil) | (("Java" | ("C" | ("CafeOBJ" | slnil))) | (("Java" | ("C" | ("Fortran" | slnil))) | nil)))))))):List
+(0.0000 sec for parse, 0.0000 sec for 303 rewrites + 572 matches)
+
+CafeOBJ> 

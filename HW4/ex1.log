@@ -1,0 +1,197 @@
+PS C:\Users\nguye\Documents\functional programming\I217E\HW4> cafeobj .\ex1.cafe
+
+-- loading standard prelude
+
+            -- CafeOBJ system Version 1.5.9(PigNose0.99) --
+                   built: 2018 Dec 27 Thu 4:43:07 GMT
+                         prelude file: std.bin
+                                  ***
+                      2026 Oct 27 Tue 0:58:33 GMT
+                            Type ? for help
+                                  ***
+                  -- Containing PigNose Extensions --
+                                  ---
+                             built on SBCL
+                                1.4.14
+processing input : C:/Users/nguye/Documents/functional programming/I217E/HW4/././ex1.cafe
+
+-- defining module! GLIST1
+-- reading in file  : bool
+
+processing input : C:/cafeobj-1.5-sbcl/lib/bool.cafe
+
+processing input : C:/cafeobj-1.5-sbcl/lib/base_bool.cafe
+
+processing input : C:/cafeobj-1.5-sbcl/lib/truth.cafe
+
+-- defining module! TRUTH
+-- reading in file  : truth
+
+-- done reading in file: truth
+ done.
+-- defining module* BASE-BOOL
+-- reading in file  : eql
+
+processing input : C:/cafeobj-1.5-sbcl/lib/eql.cafe
+
+-- defining module! EQL done.
+-- done reading in file: eql
+ done.
+processing input : C:/cafeobj-1.5-sbcl/lib/sys_bool.cafe
+
+-- defining module! BOOL done.
+-- done reading in file: bool
+
+-- defining view  done.
+-- reading in file  : nat
+
+processing input : C:/cafeobj-1.5-sbcl/lib/nat.cafe
+TRIV2NAT 
+-- defining module! NAT
+-- reading in file  : nznat
+
+processing input : C:/cafeobj-1.5-sbcl/lib/nznat.cafe
+
+-- defining module! NZNAT done.
+-- done reading in file: nznat
+ done.
+-- done reading in file: nat
+ done.
+-- defining module! NATLIST1 done.
+-- opening module NATLIST1 done.
+-- reduce in %NATLIST1 : ((4 | (3 | nil)) @ (2 | (1 | (0 | nil)))):List
+(4 | (3 | (2 | (1 | (0 | nil))))):NnList
+(0.0000 sec for parse, 0.0000 sec for 3 rewrites + 5 matches)
+-- defining module! NATLIST2 done.
+-- defining module! NATLIST3 done.
+-- defining module* TRIV-ERR done.
+-- defining module! NAT-ERR
+-- defining view  done. done.
+-- defining module! GLIST2 done.
+-- opening module GLIST2(E)TRIV-ERR2NAT-ERR  done.
+-- reduce in %GLIST2(E) : (hd(nil)):Err
+(err):Err
+(0.0000 sec for parse, 0.0000 sec for 1 rewrites + 1 matches)
+-- reduce in %GLIST2(E) : (tl(nil)):List
+(nil):Nil
+(0.0000 sec for parse, 0.0000 sec for 1 rewrites + 1 matches)
+-- reduce in %GLIST2(E) : (nil @ nil):List
+(nil):Nil
+(0.0000 sec for parse, 0.0000 sec for 1 rewrites + 1 matches)
+-- reduce in %GLIST2(E) : (nil @ (nil @ nil)):List
+(nil):Nil
+(0.0000 sec for parse, 0.0000 sec for 2 rewrites + 2 matches)
+-- reduce in %GLIST2(E) : ((nil @ nil) @ nil):List
+(nil):Nil
+(0.0000 sec for parse, 0.0000 sec for 2 rewrites + 2 matches)
+-- reduce in %GLIST2(E) : (hd(tl(nil))):Elt&Err
+(err):Err
+(0.0000 sec for parse, 0.0000 sec for 2 rewrites + 2 matches)
+-- reduce in %GLIST2(E) : (tl(tl(nil))):List
+(nil):Nil
+(0.0000 sec for parse, 0.0000 sec for 2 rewrites + 2 matches)
+-- reduce in %GLIST2(E) : (hd((nil @ nil))):Elt&Err
+(err):Err
+(0.0000 sec for parse, 0.0000 sec for 2 rewrites + 2 matches)
+-- reduce in %GLIST2(E) : (tl((nil @ nil))):List
+(nil):Nil
+(0.0000 sec for parse, 0.0000 sec for 2 rewrites + 2 matches)
+-- reduce in %GLIST2(E) : (tl(nil) @ nil):List
+(nil):Nil
+(0.0000 sec for parse, 0.0000 sec for 2 rewrites + 2 matches)
+-- reduce in %GLIST2(E) : (nil @ tl(nil)):List
+(nil):Nil
+(0.0000 sec for parse, 0.0000 sec for 2 rewrites + 2 matches)
+-- reduce in %GLIST2(E) : (hd(tl((nil @ nil)))):Elt&Err
+(err):Err
+(0.0000 sec for parse, 0.0000 sec for 3 rewrites + 3 matches)
+-- reduce in %GLIST2(E) : (tl((tl(nil) @ tl(nil)))):List
+(nil):Nil
+(0.0000 sec for parse, 0.0000 sec for 4 rewrites + 4 matches)
+-- defining module! NATLIST7 done.
+-- opening module NATLIST7 done.
+-- reduce in %NATLIST7 : (hd(nlnil)):ErrNat
+(errNat):ErrNat
+(0.0000 sec for parse, 0.0000 sec for 1 rewrites + 1 matches)
+-- reduce in %NATLIST7 : (hd(((4 | (3 | nlnil)) @ (2 | (1 | (0 | nlnil)))))):Nat&Err
+(4):NzNat
+(0.0000 sec for parse, 0.0000 sec for 4 rewrites + 6 matches)
+-- reduce in %NATLIST7 : (tl(nlnil)):NatList
+(nlnil):NLNil
+(0.0000 sec for parse, 0.0000 sec for 1 rewrites + 1 matches)
+-- reduce in %NATLIST7 : (tl(((4 | (3 | nlnil)) @ (2 | (1 | (0 | nlnil)))))):NatList
+(3 | (2 | (1 | (0 | nlnil)))):NnNatList
+(0.0000 sec for parse, 0.0000 sec for 4 rewrites + 7 matches)
+-- defining module! GLIST-ERR done.
+-- defining module NATLIST8 done.
+-- opening module NATLIST8 done.
+-- reduce in %NATLIST8 : (hd(nlnil)):ErrNat
+(errNat):ErrNat
+(0.0000 sec for parse, 0.0000 sec for 1 rewrites + 1 matches)
+-- reduce in %NATLIST8 : (hd(((4 | (3 | nlnil)) @ (2 | (1 | (0 | nlnil)))))):Nat&Err
+(4):NzNat
+(0.0000 sec for parse, 0.0000 sec for 4 rewrites + 6 matches)
+-- reduce in %NATLIST8 : (tl(nlnil)):ErrNatList
+(errNatList):ErrNatList
+(0.0000 sec for parse, 0.0000 sec for 1 rewrites + 1 matches)
+-- reduce in %NATLIST8 : (tl(((4 | (3 | nlnil)) @ (2 | (1 | (0 | nlnil)))))):NatList&Err
+(3 | (2 | (1 | (0 | nlnil)))):NatList
+(0.0000 sec for parse, 0.0000 sec for 4 rewrites + 6 matches)
+-- defining view  done.
+-- defining module! NATLISTLIST1 done.
+-- opening module NATLISTLIST1TRIV-ERR2NATLIST8  done.
+-- reduce in %NATLISTLIST1 : (hd(nllnil)):ErrNatList
+(errNatList):ErrNatList
+(0.0000 sec for parse, 0.0000 sec for 1 rewrites + 1 matches)
+-- reduce in %NATLISTLIST1 : (hd(((4 | (3 | nlnil)) | ((2 | (1 | (0 | nlnil))) | nllnil)))):NatList&Err
+(4 | (3 | nlnil)):NatList
+(0.0000 sec for parse, 0.0000 sec for 1 rewrites + 1 matches)
+-- reduce in %NATLISTLIST1 : (tl(nlnil)):ErrNatList
+(errNatList):ErrNatList
+(0.0000 sec for parse, 0.0000 sec for 1 rewrites + 1 matches)
+-- reduce in %NATLISTLIST1 : (tl(((4 | (3 | nlnil)) | ((2 | (1 | (0 | nlnil))) | nllnil)))):NatListList&Err
+((2 | (1 | (0 | nlnil))) | nllnil):NatListList
+(0.0000 sec for parse, 0.0000 sec for 1 rewrites + 1 matches)
+-- defining module* TRIV-ERR-ORD done.
+-- defining module! GQSORT
+-- defining view  done. done.
+-- opening module GQSORT(E <= TRIV-ERR-ORD2NAT-ERR)TRIV-ERR-ORD2NAT-ERR  done.
+-- reduce in %GQSORT(E <= TRIV-ERR-ORD2NAT-ERR) : (qsort((4 | (7 | (5 | (1 | (0 | (3 | (6 | (2 | nil)))))))))):List
+(0 | (1 | (2 | (3 | (4 | (5 | (6 | (7 | nil)))))))):List
+(0.0000 sec for parse, 0.0000 sec for 64 rewrites + 105 matches)
+-- defining module! STRING-ERR
+-- reading in file  : string
+
+processing input : C:/cafeobj-1.5-sbcl/lib/string.cafe
+
+-- defining module! STRING
+-- reading in file  : character
+
+processing input : C:/cafeobj-1.5-sbcl/lib/character.cafe
+
+-- defining module! CHARACTER done.
+-- done reading in file: character
+ done.
+-- done reading in file: string
+
+-- defining view  done. done.
+-- opening module GQSORT(E <= TRIV-ERR-ORD2STRING-ERR)TRIV-ERR-ORD2STRING-ERR  done.
+-- reduce in %GQSORT(E <= TRIV-ERR-ORD2STRING-ERR) : (qsort(("Lisp" | ("Python" | ("Pascal" | ("CafeOBJ" | ("C" | ("Java" | ("Prolog" | ("Fortran" | nil)))))))))):List
+("C" | ("CafeOBJ" | ("Fortran" | ("Java" | ("Lisp" | ("Pascal" | ("Prolog" | ("Python" | nil)))))))):List
+(0.0000 sec for parse, 0.0000 sec for 64 rewrites + 102 matches)
+-- defining module! GLIST-ERR-ORD done.
+-- defining module! NATLIST9
+-- defining view  done. done.
+-- opening module GQSORT(E <= TRIV-ERR-ORD2NATLIST9)TRIV-ERR-ORD2NATLIST9  done.
+-- reduce in %GQSORT(E <= TRIV-ERR-ORD2NATLIST9) : (qsort(((1 | (2 | nlnil)) | ((3 | (0 | (2 | nlnil))) | ((2 | nlnil) | ((0 | nlnil) | (nlnil | ((1 | (1 | nlnil)) | ((3 | (0 | (1 | nlnil))) | ((1 | (0 | nlnil)) | nil)))))))))):List
+(nlnil | ((0 | nlnil) | ((1 | (0 | nlnil)) | ((1 | (1 | nlnil)) | ((1 | (2 | nlnil)) | ((2 | nlnil) | ((3 | (0 | (1 | nlnil))) | ((3 | (0 | (2 | nlnil))) | nil)))))))):List
+(0.0000 sec for parse, 0.0000 sec for 183 rewrites + 335 matches)
+-- defining module! STRLIST1
+-- defining view  done. done.
+-- opening module GQSORT(E <= TRIV-ERR-ORD2STRLIST1)TRIV-ERR-ORD2STRLIST1  done.
+-- reduce in %GQSORT(E <= TRIV-ERR-ORD2STRLIST1) : (qsort((("CafeOBJ" | ("Fortran" | slnil)) | (("Java" | ("C" | ("Fortran" | slnil))) | (("Fortran" | slnil) | (("C" | slnil) | (slnil | (("CafeOBJ" | ("CafeOBJ" | slnil)) | (("Java" | ("C" | ("CafeOBJ" | slnil))) | (("CafeOBJ" | ("C" | slnil)) | nil)))))))))):List
+(slnil | (("C" | slnil) | (("CafeOBJ" | ("C" | slnil)) | (("CafeOBJ" | ("CafeOBJ" | slnil)) | (("CafeOBJ" | ("Fortran" | slnil)) | (("Fortran" | slnil) | (("Java" | ("C" | ("CafeOBJ" | slnil))) | (("Java" | ("C" | ("Fortran" | slnil))) | nil)))))))):List
+(0.0000 sec for parse, 0.0000 sec for 183 rewrites + 329 matches)
+
+CafeOBJ> 
+
