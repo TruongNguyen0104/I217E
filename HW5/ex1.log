@@ -1,0 +1,163 @@
+(base) PS C:\Users\nguye\Documents\functional programming\I217E\HW5> cafeobj .\ex1.cafe  
+
+-- loading standard prelude
+
+            -- CafeOBJ system Version 1.5.9(PigNose0.99) --
+                   built: 2018 Dec 27 Thu 4:43:07 GMT
+                         prelude file: std.bin
+                                  ***
+                     2026 Oct 28 Wed 11:24:52 GMT
+                            Type ? for help
+                                  ***
+                  -- Containing PigNose Extensions --
+                                  ---
+                             built on SBCL
+                                1.4.14
+processing input : C:/Users/nguye/Documents/functional programming/I217E/HW5/././ex1.cafe
+
+-- defining module! PAIR
+-- reading in file  : bool
+
+processing input : C:/cafeobj-1.5-sbcl/lib/bool.cafe
+
+processing input : C:/cafeobj-1.5-sbcl/lib/base_bool.cafe
+
+processing input : C:/cafeobj-1.5-sbcl/lib/truth.cafe
+
+-- defining module! TRUTH
+-- reading in file  : truth
+
+-- done reading in file: truth
+ done.
+-- defining module* BASE-BOOL
+-- reading in file  : eql
+
+processing input : C:/cafeobj-1.5-sbcl/lib/eql.cafe
+
+-- defining module! EQL done.
+-- done reading in file: eql
+ done.
+processing input : C:/cafeobj-1.5-sbcl/lib/sys_bool.cafe
+
+-- defining module! BOOL done.
+-- done reading in file: bool
+ done.
+-- defining module! TRIPLE done.
+-- defining module* TRIV-ERR done.
+-- defining module* TRIV-ERR-IF done.
+-- defining module! GLIST-ERR done.
+-- defining module! BOOL-ERR done.
+-- defining module! NAT-ERR
+-- reading in file  : nat
+
+processing input : C:/cafeobj-1.5-sbcl/lib/nat.cafe
+
+-- defining module! NAT
+-- reading in file  : nznat
+
+processing input : C:/cafeobj-1.5-sbcl/lib/nznat.cafe
+
+-- defining module! NZNAT done.
+-- done reading in file: nznat
+ done.
+-- done reading in file: nat
+ done.
+-- defining module* TRIV-ERR-IF
+[Warning]: Redefining module TRIV-ERR-IF  done.
+-- defining module! ENTRY done.
+-- defining module! TABLE done.
+-- defining module! STRING-ERR
+-- reading in file  : string
+
+processing input : C:/cafeobj-1.5-sbcl/lib/string.cafe
+
+-- defining module! STRING
+-- reading in file  : character
+
+processing input : C:/cafeobj-1.5-sbcl/lib/character.cafe
+
+-- defining module! CHARACTER done.
+-- done reading in file: character
+ done.
+-- done reading in file: string
+
+-- defining view  done.
+-- reading in file  : qid
+
+processing input : C:/cafeobj-1.5-sbcl/lib/qid.cafe
+TRIV2QID 
+-- defining module! QID done.
+-- done reading in file: qid
+
+-- defining view  done. done.
+-- opening module TABLE(K <= TRIV2QID, V <= TRIV-ERR-IF2STRING-ERR)TRIV-ERR-IF2STRING-ERR  done.
+-- reduce in %TABLE(K <= TRIV2QID, V <= TRIV-ERR-IF2STRING-ERR) : (t):Table
+(('java , "Java") | (('obj , "OBJ3") | (('c , "C") | empTable))):Table
+(0.0000 sec for parse, 0.0000 sec for 13 rewrites + 19 matches)
+-- reduce in %TABLE(K <= TRIV2QID, V <= TRIV-ERR-IF2STRING-ERR) : (isReg(t,'obj)):Bool
+(true):Bool
+(0.0000 sec for parse, 0.0000 sec for 19 rewrites + 28 matches)
+-- reduce in %TABLE(K <= TRIV2QID, V <= TRIV-ERR-IF2STRING-ERR) : (isReg(t,'mk)):Bool
+(false):Bool
+(0.0000 sec for parse, 0.0000 sec for 23 rewrites + 35 matches)
+-- reduce in %TABLE(K <= TRIV2QID, V <= TRIV-ERR-IF2STRING-ERR) : (lookup(t,'obj)):String&Err
+("OBJ3"):String
+(0.0000 sec for parse, 0.0000 sec for 19 rewrites + 28 matches)
+-- reduce in %TABLE(K <= TRIV2QID, V <= TRIV-ERR-IF2STRING-ERR) : (lookup(t,'mk)):String&Err
+(errStr):ErrString
+(0.0000 sec for parse, 0.0000 sec for 23 rewrites + 35 matches)
+-- reduce in %TABLE(K <= TRIV2QID, V <= TRIV-ERR-IF2STRING-ERR) : (update(t,'mk,"SML#")):Table
+(('java , "Java") | (('obj , "OBJ3") | (('c , "C") | (('mk , "SML#") | empTable)))):Table
+(0.0000 sec for parse, 0.0000 sec for 23 rewrites + 35 matches)
+-- reduce in %TABLE(K <= TRIV2QID, V <= TRIV-ERR-IF2STRING-ERR) : (update(t,'obj,"CafeOBJ")):Table
+(('java , "Java") | (('obj , "CafeOBJ") | (('c , "C") | empTable))):Table
+(0.0000 sec for parse, 0.0000 sec for 19 rewrites + 28 matches)
+-- reduce in %TABLE(K <= TRIV2QID, V <= TRIV-ERR-IF2STRING-ERR) : (insert(t,'mk,"SML#")):Table&Err
+(('mk , "SML#") | (('java , "Java") | (('obj , "OBJ3") | (('c , "C") | empTable)))):Table
+(0.0000 sec for parse, 0.0000 sec for 25 rewrites + 38 matches)
+-- reduce in %TABLE(K <= TRIV2QID, V <= TRIV-ERR-IF2STRING-ERR) : (insert(t,'obj,"CafeOBJ")):Table&Err
+(errTable):ErrTable
+(0.0000 sec for parse, 0.0000 sec for 21 rewrites + 30 matches)
+-- reduce in %TABLE(K <= TRIV2QID, V <= TRIV-ERR-IF2STRING-ERR) : (remove(t,'mk)):Table
+(('java , "Java") | (('obj , "OBJ3") | (('c , "C") | empTable))):Table
+(0.0000 sec for parse, 0.0000 sec for 23 rewrites + 35 matches)
+-- reduce in %TABLE(K <= TRIV2QID, V <= TRIV-ERR-IF2STRING-ERR) : (remove(t,'obj)):Table
+(('java , "Java") | (('c , "C") | empTable)):Table
+(0.0000 sec for parse, 0.0000 sec for 19 rewrites + 28 matches)
+-- reduce in %TABLE(K <= TRIV2QID, V <= TRIV-ERR-IF2STRING-ERR) : (delete(t,'mk)):Table&Err
+(errTable):ErrTable
+(0.0000 sec for parse, 0.0000 sec for 25 rewrites + 38 matches)
+-- reduce in %TABLE(K <= TRIV2QID, V <= TRIV-ERR-IF2STRING-ERR) : (delete(t,'obj)):Table&Err
+(('java , "Java") | (('c , "C") | empTable)):Table
+(0.0000 sec for parse, 0.0000 sec for 27 rewrites + 39 matches)
+-- defining module! TAG
+-- defining view  done. done.
+-- defining module! CATALOG done.
+-- opening module CATALOGTRIV-ERR-IF2TAG  done.
+-- reduce in %CATALOG : (cat):Catalog
+(('a , ("apple" , 150)) | (('o , ("orange" , 100)) | (('t , ("tomato" , 90)) | empCatalog))):Catalog
+(0.0000 sec for parse, 0.0000 sec for 1 rewrites + 1 matches)
+-- defining module! CART-ITEM
+-- defining view  done. done.
+-- defining module! CART done.
+-- opening module CARTTRIV-ERR2CART-ITEM  done.
+-- reduce in %CART : (norm(c)):Cart
+(('o , 10) | (('t , 10) | empCart)):Cart
+(0.0000 sec for parse, 0.0000 sec for 14 rewrites + 20 matches)
+-- defining module! BILL-ITEM
+-- defining view  done. done.
+-- defining module! BILIST done.
+-- defining module! BILL done.
+-- opening module BILLTRIV-ERR2BILL-ITEM  done.
+-- reduce in %BILL : (mkBill(cat,c)):Bill&Err
+((("orange" , 10 , 1000) | (("tomato" , 10 , 900) | nilBIL)) , 1900):Bill
+(0.0000 sec for parse, 0.0000 sec for 44 rewrites + 69 matches)
+-- opening module BILL done.
+-- reduce in %BILL : (mkBill(cat,c1)):Bill&Err
+((("tomato" , 20 , 1800) | (("orange" , 12 , 1200) | (("banana" , 10 , 1400) | (("potato" , 13 , 390) | (("apple" , 3 , 450) | nilBIL))))) , 5240):Bill
+(0.0000 sec for parse, 0.0000 sec for 139 rewrites + 227 matches)
+-- reduce in %BILL : (mkBill(cat,c2)):Bill&Err
+(errBill):ErrBill
+(0.0000 sec for parse, 0.0000 sec for 56 rewrites + 87 matches)
+
+CafeOBJ>  
