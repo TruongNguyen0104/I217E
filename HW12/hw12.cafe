@@ -142,7 +142,7 @@ close
 
 -- EXERCISE 2: Prove rev1(rev1(L)) = L for all lists L
 
--- Supporting property: right identity of concatenation
+-- Lemma 3
 -- L @ nil = L
 -- Proof by Structural induction on L
 -- I. Base case: L = nil
@@ -161,7 +161,8 @@ open LIST2 .
   -- check
   red (e | l) @ nil = e | l .
 close
--- End of Proof of Supporting property
+-- End of Proof of Lemma 3
+
 
 -- Lemma 2:
 -- rev1(rev1(L1) @ L2) = rev1(L2) @ L1
@@ -190,7 +191,7 @@ close
 -- End of Proof of Lemma 2
 
 
--- Requested: 
+-- Requested proof: 
 -- rev1(rev1(L1)) = L1
 -- Proof by Structural induction on L1
 -- I. Base case: L1 = nil
@@ -210,4 +211,4 @@ open LIST2 .
   -- check
   red rev1(rev1(e | l1)) = e | l1 .
 close
--- End of Proof of Theorem 2
+-- End of Proof of requested proof.

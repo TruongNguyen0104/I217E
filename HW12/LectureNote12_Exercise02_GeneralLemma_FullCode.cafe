@@ -1,0 +1,133 @@
+-- ===============================================================
+-- I217 Functional Programming
+-- Lecture Note 12 - Program Verification: Lists
+-- EXERCISE 2
+--
+-- Required general lemma:
+--   rev1(rev1(L1) @ L2) = rev1(L2) @ L1
+--
+-- Final theorem:
+--   rev1(rev1(L)) = L
+--
+-- Reuses assoc@ proved in Exercise 1.
+-- A supporting right-identity property L @ nil = L is needed
+-- for the BASE CASE of the general lemma.
+-- ===============================================================
+
+-- ---------------------------------------------------------------
+-- LIST1 specification (same list/rev1 specification as Exercise 1)
+-- ---------------------------------------------------------------
+mod! LIST1 (E :: TRIV) {
+  [ List ]
+
+  op nil : -> List {constr} .
+  op _|_ : Elt.E List -> List {constr} .
+  op _@_ : List List -> List .
+  op rev1 : List -> List .
+
+  vars E E2 : Elt.E .
+  vars L1 L2 L3 : List .
+
+  eq (nil = E | L1) = false .
+  eq (E | L1 = E2 | L2) = (E = E2) and (L1 = L2) .
+
+  -- Concatenation
+  eq nil @ L2 = L2 .
+  eq (E | L1) @ L2 = E | (L1 @ L2) .
+
+  -- Recursive reverse
+  eq rev1(nil) = nil .
+  eq rev1(E | L1) = rev1(L1) @ (E | nil) .
+}
+
+-- ===============================================================
+-- EXERCISE 2
+-- ===============================================================
+
+-- ---------------------------------------------------------------
+-- Supporting property: right identity of concatenation
+-- L @ nil = L
+--
+-- This is NOT the main lemma requested. It is needed only to
+-- complete the base case of the requested general lemma.
+-- ---------------------------------------------------------------
+
+-- Base case: L = nil
+open LIST1 .
+  red nil @ nil = nil .
+close
+
+-- Induction case: L = e | l
+-- IH: l @ nil = l
+open LIST1 .
+  op l : -> List .
+  op e : -> Elt.E .
+
+  eq l @ nil = l .
+
+  red (e | l) @ nil = e | l .
+close
+
+-- ---------------------------------------------------------------
+-- Lemma 2 (the general lemma requested):
+--
+-- rev1(rev1(L1) @ L2) = rev1(L2) @ L1
+--
+-- Structural induction on L1.
+-- Uses assoc@ from Exercise 1 and the supporting property L @ nil = L.
+-- ---------------------------------------------------------------
+
+-- I. Base case: L1 = nil
+open LIST1 .
+  op l2 : -> List .
+
+  -- Previously proved supporting property: L @ nil = L
+  eq L1 @ nil = L1 .
+
+  red rev1(rev1(nil) @ l2) = rev1(l2) @ nil .
+close
+
+-- II. Induction case: L1 = e | l1
+-- IH: rev1(rev1(l1) @ L2) = rev1(L2) @ l1
+open LIST1 .
+  ops l1 l2 : -> List .
+  op e : -> Elt.E .
+
+  -- Previously proved Exercise 1, Theorem 1: assoc@
+  eq (L1 @ L2) @ L3 = L1 @ (L2 @ L3) .
+
+  -- Induction hypothesis
+  eq rev1(rev1(l1) @ L2) = rev1(L2) @ l1 .
+
+  red rev1(rev1(e | l1) @ l2)
+      = rev1(l2) @ (e | l1) .
+close
+
+-- ---------------------------------------------------------------
+-- Theorem 3: Involution of reverse
+-- rev1(rev1(L1)) = L1
+--
+-- Structural induction on L1.
+-- Uses the already-proved general Lemma 2.
+-- ---------------------------------------------------------------
+
+-- I. Base case: L1 = nil
+open LIST1 .
+  red rev1(rev1(nil)) = nil .
+close
+
+-- II. Induction case: L1 = e | l1
+-- The general lemma is instantiated with:
+--   L1 = l1
+--   L2 = e | nil
+open LIST1 .
+  op l1 : -> List .
+  op e : -> Elt.E .
+
+  -- Previously proved general Lemma 2
+  eq rev1(rev1(L1) @ L2) = rev1(L2) @ L1 .
+
+  red rev1(rev1(e | l1)) = e | l1 .
+close
+
+-- =========================== END ===============================
