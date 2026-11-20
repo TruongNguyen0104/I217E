@@ -1,0 +1,36 @@
+mod* VAR principal-sort Var {
+[Var]  
+}
+
+mod! EXP {  pr(VAR)  pr(NAT)
+[Var < Exp]
+op n : Nat -> Exp {constr} .
+op _+_ : Exp Exp -> Exp {constr prec: 33 l-assoc} .
+op _-_ : Exp Exp -> Exp {constr prec: 33 l-assoc} .
+op _*_ : Exp Exp -> Exp {constr prec: 31 l-assoc} .
+op _/_ : Exp Exp -> Exp {constr prec: 31 l-assoc} .
+op _%_ : Exp Exp -> Exp {constr prec: 31 l-assoc} .
+op _===_ : Exp Exp -> Exp {constr prec: 40 l-assoc} .
+op _=!=_ : Exp Exp -> Exp {constr prec: 40 l-assoc} .
+op _<_ : Exp Exp -> Exp {constr prec: 40 l-assoc} .
+op _>_ : Exp Exp -> Exp {constr prec: 40 l-assoc} .
+op _&&_ : Exp Exp -> Exp {constr prec: 50 l-assoc} .
+op _||_ : Exp Exp -> Exp {constr prec: 55 l-assoc} .
+}
+
+open EXP .
+ops x y z : -> Var .
+red x + y - z * n(2) / x === n(10) + x * y || x =!= y && n(1) + x + y > z .
+close
+
+mod! STM {
+pr(EXP)
+[Stm]
+op estm : -> Stm {constr} .
+op _:=_; : Var Exp -> Stm {constr} .
+op if_{_}else{_} : Exp Stm Stm -> Stm {constr} .
+op while_{_} : Exp Stm -> Stm {constr} .
+op for_ _ _{_} : Var Exp Exp Stm -> Stm {constr} .
+op _ _ : Stm Stm -> Stm {constr prec:60 id:estm r-assoc} .
+
+}

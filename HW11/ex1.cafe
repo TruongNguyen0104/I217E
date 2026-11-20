@@ -1,0 +1,232 @@
+mod! PNAT1 {
+  [ PNat ]
+
+  op 0 : -> PNat {constr} .
+  op s : PNat -> PNat {constr} .
+  op _+_ : PNat PNat -> PNat .
+  op _*_ : PNat PNat -> PNat .
+
+  vars X Y Z : PNat .
+
+
+  eq (0 = s(Y)) = false .
+  eq (s(X) = s(Y)) = (X = Y) .
+
+  -- Addition
+  eq 0 + Y = Y .
+  eq s(X) + Y = s(X + Y) .
+
+  -- Multiplication
+  
+  eq 0 * Y = 0 .                        
+  eq s(X) * Y = (X * Y) + Y .   
+  
+  op fact1 : PNat -> PNat .
+  eq fact1(0) = s(0) .                               
+  eq fact1(s(X)) = s(X) * fact1(X) .  
+  
+  op fact2 : PNat -> PNat .
+  op sfact2 : PNat PNat -> PNat .
+  eq fact2(X) = sfact2(X,s(0)) .                    
+  eq sfact2(0,Y) = Y .                                   
+  eq sfact2(s(X),Y) = sfact2(X,s(X) * Y) .     
+
+}
+
+-- Theorem 1: Associativity of addition (assoc+)
+-- (X + Y) + Z = X + (Y + Z)
+-- Proof of Theorem 1 By structural induction on X.
+-- Base case: X = 0
+open PNAT1 .
+  ops y z : -> PNat .
+  red (0 + y) + z = 0 + (y + z) .
+close
+
+-- Induction case: X = s(x), with IH
+-- (x + Y) + Z = x + (Y + Z)
+open PNAT1 .
+  ops x y z : -> PNat .
+  eq (x + Y) + Z = x + (Y + Z) .
+  red (s(x) + y) + z = s(x) + (y + z) .
+close
+-- End of Proof of Theorem 1
+
+
+-- Lemma 1: Right zero of addition (rz+)
+-- X + 0 = X
+-- Proof of Lemma 1 By structural induction on X.
+-- Base case
+open PNAT1 .
+  red 0 + 0 = 0 .
+close
+
+-- Induction case, IH: x + 0 = x
+open PNAT1 .
+  op x : -> PNat .
+  eq x + 0 = x .
+  red s(x) + 0 = s(x) .
+close
+-- End of Proof of Lemma 1
+
+-- Lemma 2: Right successor of addition (rs+)
+-- X + s(Y) = s(X + Y)
+-- Proof of Lemma 2 By structural induction on X.
+-- Base case
+open PNAT1 .
+  op y : -> PNat .
+  red 0 + s(y) = s(0 + y) .
+close
+
+-- Induction case, IH: x + s(Y) = s(x + Y)
+open PNAT1 .
+  ops x y : -> PNat .
+  eq x + s(Y) = s(x + Y) .
+  red s(x) + s(y) = s(s(x) + y) .
+close
+-- End of Proof of Lemma 2
+
+-- Theorem 2: Commutativity of addition (comm+)
+-- X + Y = Y + X
+-- Proof of Theorem 2 By structural induction on X.
+-- Base case; use Lemma rz+
+open PNAT1 .
+  op y : -> PNat .
+  eq X + 0 = X .
+  red 0 + y = y + 0 .
+close
+
+-- Induction case; use Lemma rs+ and IH x + Y = Y + x
+open PNAT1 .
+  ops x y : -> PNat .
+  eq X + s(Y) = s(X + Y) .
+  eq x + Y = Y + x .
+  red s(x) + y = y + s(x) .
+close
+-- End of Proof of Theorem 2
+
+
+-- Lemma 3: Distributive law of multiplication over addition (d*o+)
+-- (X + Y) * Z = (X * Z) + (Y * Z)
+-- Proof of Lemma 3 By structural induction on X.
+-- Base case
+open PNAT1 .
+  ops y z : -> PNat .
+  red (0 + y) * z = (0 * z) + (y * z) .
+close
+
+-- Induction case, IH: (x + Y) * Z = (x * Z) + (Y * Z)
+open PNAT1 .
+  ops x y z : -> PNat .
+  eq (x + Y) * Z = (x * Z) + (Y * Z) .
+  red (s(x) + y) * z = (s(x) * z) + (y * z) .
+close
+-- End of Proof of Lemma 3
+
+-- Theorem 3: Associativity of multiplication (assoc*)
+-- (X * Y) * Z = X * (Y * Z)
+-- Proof of Theorem 3 By structural induction on X.
+-- Base case
+open PNAT1 .
+  ops y z : -> PNat .
+  red (0 * y) * z = 0 * (y * z) .
+close
+
+-- Induction case; use Lemma d*o+ and IH
+-- (X + Y) * Z = (X * Z) + (Y * Z)
+-- (x * Y) * Z = x * (Y * Z)
+open PNAT1 .
+  ops x y z : -> PNat .
+  eq (X + Y) * Z = (X * Z) + (Y * Z) .
+  eq (x * Y) * Z = x * (Y * Z) .
+  red (s(x) * y) * z = s(x) * (y * z) .
+close
+-- End of Proof of Theorem 3
+
+-- Lemma 4: Right zero of multiplication (rz*)
+-- X * 0 = 0
+-- Proof of Lemma 4 By structural induction on X.
+-- Base case
+open PNAT1 .
+  red 0 * 0 = 0 .
+close
+
+-- Induction case, IH: x * 0 = 0
+open PNAT1 .
+  op x : -> PNat .
+  eq x * 0 = 0 .
+  red s(x) * 0 = 0 .
+close
+-- End of Proof of Lemma 4
+
+-- Lemma 5: Right successor of multiplication (rs*)
+-- X * s(Y) = (X * Y) + X
+-- Proof of Lemma 5 By structural induction on X.
+-- Base case
+open PNAT1 .
+  op y : -> PNat .
+  red 0 * s(y) = (0 * y) + 0 .
+close
+
+-- Induction case, IH: x * s(Y) = (x * Y) + x
+open PNAT1 .
+  ops x y : -> PNat .
+  eq x * s(Y) = (x * Y) + x .
+  red s(x) * s(y) = (s(x) * y) + s(x) .
+close
+-- End of Proof of Lemma 5
+
+-- Theorem 4: Commutativity of multiplication (comm*)
+-- X * Y = Y * X
+-- Proof of Theorem 4 By structural induction on X.
+-- Base case; use Lemma rz*
+open PNAT1 .
+  op y : -> PNat .
+  eq X * 0 = 0 .
+  red 0 * y = y * 0 .
+close
+
+-- Induction case; use Lemma rs* and IH x * Y = Y * x
+open PNAT1 .
+  ops x y : -> PNat .
+  eq X * s(Y) = (X * Y) + X .
+  eq x * Y = Y * x .
+  red s(x) * y = y * s(x) .
+close
+-- End of Proof of Theorem 4
+
+-- Lemma 6 — Property of sfact2 (p-sf2)
+-- Y * sfact2(X,Z) = sfact2(X,Y * Z)
+-- Proof of Lemma 6 By structural induction on X.
+-- Base case
+open PNAT1 .
+  ops y z : -> PNat .
+  red y * sfact2(0,z) = sfact2(0,y * z) .
+close
+
+-- Induction case; use Lemma d*o+ and IH
+-- IH: Y * sfact2(x,Z) = sfact2(x,Y * Z)
+open PNAT1 .
+  ops x y z : -> PNat .
+  eq (X + Y) * Z = (X * Z) + (Y * Z) .
+  eq Y * sfact2(x,Z) = sfact2(x,Y * Z) .
+  red y * sfact2(s(x),z) = sfact2(s(x),y * z) .
+close
+-- End of Proof of Lemma 6
+
+-- Theorem 5: Correctness of tail-recursive factorial (trf)
+-- fact1(X) = fact2(X)
+-- Proof of Theorem 5 By structural induction on X.
+-- Base case
+open PNAT1 .
+  red fact1(0) = fact2(0) .
+close
+
+-- Induction case; use Lemma p-sf2 and IH
+-- IH: fact1(x) = fact2(x)
+open PNAT1 .
+  op x : -> PNat .
+  eq Y * sfact2(X,Z) = sfact2(X,Y * Z) .
+  eq fact1(x) = fact2(x) .
+  red fact1(s(x)) = fact2(s(x)) .
+close
+-- End of Proof of Theorem 5
